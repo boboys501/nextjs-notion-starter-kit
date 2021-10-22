@@ -8,7 +8,7 @@ module.exports = {
 
   // basic site info (required)
   name: 'Jie yu Wang',
-  domain: 'Pomi1997.com',
+  domain: 'pomi1997-blog.vercel.app',
   author: 'Jie yu Wang',
 
   // open graph metadata (optional)
