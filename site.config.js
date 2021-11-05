@@ -12,7 +12,7 @@ module.exports = {
   author: 'Jie yu Wang',
 
   // open graph metadata (optional)
-  description: 'Example site description',
+  description: 'Welcome to my blog!',
   socialImageTitle: 'Jie yu Wang',
   socialImageSubtitle: 'Hello World! 👋',
 
