@@ -1,19 +1,22 @@
 import * as React from 'react'
-import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa'
-import { IoSunnyOutline, IoMoonSharp } from 'react-icons/io5'
-import * as config from 'lib/config'
+
+import * as config from '@/lib/config'
+import { GitHubIcon } from '@/lib/icons/github'
+import { LinkedInIcon } from '@/lib/icons/linkedin'
+import { MoonIcon } from '@/lib/icons/moon'
+import { SunIcon } from '@/lib/icons/sun'
+import { TwitterIcon } from '@/lib/icons/twitter'
+import { useDarkMode } from '@/lib/use-dark-mode'
 
 import styles from './styles.module.css'
 
-// TODO: merge the data and icons from PageSocial with the social links in Footer
-
-export const Footer: React.FC<{
-  isDarkMode: boolean
-  toggleDarkMode: () => void
-}> = ({ isDarkMode, toggleDarkMode }) => {
+export function FooterImpl() {
   const [hasMounted, setHasMounted] = React.useState(false)
-  const toggleDarkModeCb = React.useCallback(
-    (e) => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode()
+  const currentYear = new Date().getFullYear()
+
+  const onToggleDarkMode = React.useCallback(
+    (e: any) => {
       e.preventDefault()
       toggleDarkMode()
     },
@@ -26,30 +29,34 @@ export const Footer: React.FC<{
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.copyright}>Copyright 2021 {config.author}</div>
+      <div className={styles.copyright}>
+        Copyright {currentYear} {config.author}
+      </div>
 
-      {hasMounted ? (
-        <div className={styles.settings}>
+      <div className={styles.settings}>
+        {hasMounted && (
           <a
             className={styles.toggleDarkMode}
-            onClick={toggleDarkModeCb}
+            href='#'
+            role='button'
+            onClick={onToggleDarkMode}
             title='Toggle dark mode'
           >
-            {isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+            {isDarkMode ? <MoonIcon /> : <SunIcon />}
           </a>
-        </div>
-      ) : null}
+        )}
+      </div>
 
       <div className={styles.social}>
         {config.twitter && (
           <a
             className={styles.twitter}
-            href={`https://twitter.com/${config.twitter}`}
-            title={`Twitter @${config.twitter}`}
+            href={`https://x.com/${config.twitter}`}
+            title={`X @${config.twitter}`}
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaTwitter />
+            <TwitterIcon />
           </a>
         )}
 
@@ -61,7 +68,7 @@ export const Footer: React.FC<{
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaGithub />
+            <GitHubIcon />
           </a>
         )}
 
@@ -73,10 +80,12 @@ export const Footer: React.FC<{
             target='_blank'
             rel='noopener noreferrer'
           >
-            <FaLinkedin />
+            <LinkedInIcon />
           </a>
         )}
       </div>
     </footer>
   )
 }
+
+export const Footer = React.memo(FooterImpl)
