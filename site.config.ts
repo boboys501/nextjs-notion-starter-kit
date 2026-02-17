@@ -17,7 +17,7 @@ export default siteConfig({
   description: 'Welcome to my blog!',
 
   // social usernames (optional)
-  twitter: null,
+  //twitter: null,
   github: 'boboys501',
   linkedin: 'pomi',
   // mastodon: '#', // optional mastodon profile URL, provides link verification
