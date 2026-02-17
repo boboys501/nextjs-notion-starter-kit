@@ -7,19 +7,19 @@ module.exports = {
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: 'Jie yu Wang',
-  domain: 'pomi1997-blog.vercel.app',
-  author: 'Jie yu Wang',
+  name: 'Jie Yu Wang',
+  domain: 'pomiwang-blog.vercel.app',
+  author: 'Jie Yu Wang',
 
   // open graph metadata (optional)
   description: 'Welcome to my blog!',
-  socialImageTitle: 'Jie yu Wang',
+  socialImageTitle: 'Jie Yu Wang',
   socialImageSubtitle: 'Hello World! 👋',
 
   // social usernames (optional)
   twitter: null,
   github: 'boboys501',
-  linkedin: null,
+  linkedin: 'pomi',
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults
