@@ -1,9 +1,5 @@
-onlyBuiltDependencies:
+ignoredBuiltDependencies:
+  - canvas
+  - core-js
+  - protobufjs
   - sharp
-  - simple-git-hooks
-
-enablePrePostScripts: true
-
-minimumReleaseAge: 1440
-
-packageManagerStrict: false
